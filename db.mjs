@@ -15,5 +15,5 @@ export function connectToDatabase(cb) {
 }
 
 export function getDB() {
-    return dbConnection;
+    return dbConnection
 }
