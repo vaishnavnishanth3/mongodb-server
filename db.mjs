@@ -1,9 +1,14 @@
 import {MongoClient} from "mongodb";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 let dbConnection;
 
+const URI = process.env.DB_URI;
+
 export function connectToDatabase(cb) {
-    MongoClient.connect('mongodb://localhost:27017/bookStore')
+    MongoClient.connect(URI)
     .then((client) => {
         dbConnection = client.db()
         return cb()
